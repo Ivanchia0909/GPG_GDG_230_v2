@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Guillaume and Dylan/Guillaume Messing Around/PVPTableScene.unity
+- path: Assets/Scenes/main_menu(Test).unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
