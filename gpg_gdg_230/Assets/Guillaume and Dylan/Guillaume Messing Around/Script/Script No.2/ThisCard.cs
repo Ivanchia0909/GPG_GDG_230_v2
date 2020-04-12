@@ -54,7 +54,11 @@ public class ThisCard : MonoBehaviour
     public GameObject tokenObject;
     public List<CardVersion2> tokenCards = new List<CardVersion2>();
     public int buffOtherCardsATK;
+    public static int staticBuffOtherCardsATK;
     public int buffOtherCardsHealth;
+    public static int staticBuffOtherCardsHealth;
+
+    public BuffingOtherCardsScript buffingOthersCards;
 
     //These are forbeing able to attack or not
     // and which one to attack.
@@ -261,8 +265,7 @@ public class ThisCard : MonoBehaviour
         SummoningTheMonster(summoningMonsters);
         drawX = drawXCards;
         CardsOnTheField.beingSummoned = true;
-        BuffOtherCardATK(buffOtherCardsATK);
-        BuffOtherCardHealth(buffOtherCardsHealth);
+
     }
 
     public void MaxCoin(int x)
@@ -276,32 +279,23 @@ public class ThisCard : MonoBehaviour
     
     public void BuffAttack(int x)
     {
-        thisCardAttack += x;
-        attackText.text = thisCardAttack.ToString();
+        if (buffOtherCardsATK > 0)
+        {
+            buffingOthersCards.buffingOtherCardsATKBool = true;
+            buffingOthersCards.attackBuff = buffOtherCardsATK;
+        }
+
+        if (buffingOthersCards.buffingOtherCardsATKBool == false)
+        {
+            thisCardAttack += x;
+            attackText.text = thisCardAttack.ToString();
+        }
     }
 
     public void BuffHealth(int x)
     {
         thisCardHealth += x;
         healthText.text = "" + thisCardHealth;
-    }
-
-    public void BuffOtherCardATK(int x)
-    {
-        int fieldList = field.fieldCards.Count;
-
-        for (int i = 0; i < fieldList; i++)
-        {
-            if (field.fieldCards[i].tag == thisCard[0].cardType)
-            {
-                CardsOnTheField.staticAttackList[i] += x;
-            }
-        }
-    }
-        
-    public void BuffOtherCardHealth(int x)
-    {
-
     }
 
     public void SummoningTheMonster(int x)

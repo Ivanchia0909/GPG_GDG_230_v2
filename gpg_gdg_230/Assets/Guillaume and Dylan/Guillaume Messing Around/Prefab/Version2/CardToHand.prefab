@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 5020197271093928358}
   - component: {fileID: 7759746104159606189}
   - component: {fileID: 7845622490883193912}
+  - component: {fileID: 8923790389123335331}
   - component: {fileID: 8669690776644368837}
   - component: {fileID: 229188530222455745}
   - component: {fileID: 2729985596070342512}
@@ -327,6 +328,7 @@ MonoBehaviour:
   tokenCards: []
   buffOtherCardsATK: 0
   buffOtherCardsHealth: 0
+  buffingOthersCards: {fileID: 8923790389123335331}
   ableToAttackObject: {fileID: 3161765567210277177}
   target: {fileID: 0}
   enemy: {fileID: 0}
@@ -340,6 +342,23 @@ MonoBehaviour:
   field: {fileID: 0}
   fieldObject: {fileID: 0}
   cardObject: {fileID: 2335418786316836980}
+--- !u!114 &8923790389123335331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335418786316836980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e7abeac7323a34d9834ecd277ffb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackBuff: 0
+  healthBuff: 0
+  buffingOtherCardsATKBool: 0
+  buffingOtherCardsHealthBool: 0
+  thisCard: {fileID: 7845622490883193912}
 --- !u!114 &8669690776644368837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,10 +387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 0}
   cardObject: {fileID: 2335418786316836980}
-  tokenCard: {fileID: 7845622490883193912}
   field: {fileID: 0}
   fieldObject: {fileID: 0}
-  onfield: 1
 --- !u!114 &2729985596070342512
 MonoBehaviour:
   m_ObjectHideFlags: 0
